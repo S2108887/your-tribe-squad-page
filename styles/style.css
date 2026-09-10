@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+.verdwenen {
+    display: none;
+}
+
+section {
+    display: none;
+}
+
+section:target {
+    display: unset;
+}
+
+.visitekaartjes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 8rem);
+    grid-auto-rows: 14rem;
+    gap: 1rem;
+    grid-auto-flow: dense;
+}
+
+
+article {
+    background-color: darkmagenta;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 2em;
+    grid-template-rows: 1fr max-content;
+    gap: 0.5em;
+    padding: 0.5em;
+}
+
+/*We kunnen zorgen dat sommige kaarten twee kolommen innemen.*/
+.visitekaartjes {
+    article:nth-child(6), 
+    article:nth-child(19), 
+    article:nth-child(33), 
+    article:nth-child(13) {
+        grid-column-end: span 2;
+    } 
+}
+
+article > img {
+    object-fit: contain;
+    height: 11rem;
+    width: 100%;
+
+    grid-row: 1 / span 1;
+    grid-column: 1 / -1;
+
+    justify-self: center;
+    align-self: start;
+}
+
+article > h2 {
+    font-size: 0.5em;
+    grid-row: 2 / -1;
+    grid-column: 1 / 2; 
+    margin: 0;
+    align-self: end;
+}
+
+article > a {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    color: white;
+    align-self: end;
+}
