@@ -42,9 +42,9 @@ function toonAlleKaarten() {
     }
 }
 
-//Maak een <article> met daarin een <h2> een <img> en een <a>.
-//Hierin zitten respectievelijk: De naam van de persoon, de afbeelding
-//Van het visitekaartje en de link naar het visitekaartje.
+//Maak een <article> met daarin een <h2>, een <div> en een <a>.
+//Hierin zitten respectievelijk: De naam van de persoon, een <img>
+//met daarin de afbeelding en de link naar het visitekaartje.
 function maakVisitekaartje(info) {
     let resultaat = document.createElement("article")
     let naam = document.createElement("h2")
