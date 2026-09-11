@@ -1,7 +1,45 @@
 body {
-    background: rgb(213, 171, 178);
+    background-image: url("Achtergrond_squad.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    @media (min-width: 30em) {
-        background: rgb(94, 94, 85);
-    }
+img {
+    width: 200px;
+    height: auto;
+}
+
+header {
+    text-align: center;
+}.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+
+.card-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-preview img {
+    width: 250px;
+    height: auto;
+}
+
+.card-preview div {
+    text-align: center;
+}
+
+.arrow {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
