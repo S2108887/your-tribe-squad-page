@@ -29,8 +29,8 @@ body {
     padding: 1em;
     margin: 0;
 
-    grid-template-columns: max-content 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
 
     grid-auto-flow: row;
 
@@ -38,6 +38,12 @@ body {
 
     width: 100%;
     height: 100%;
+
+    @media (min-width: 30rem) {
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: 1fr;
+    }
+
 }
 
 h1 {
@@ -45,26 +51,35 @@ h1 {
 }
 
 nav {
+    justify-self: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 1rem;
+
+
+    @media (min-width: 30rem) {
+        flex-direction: column;
+    }
+    
+
     a {
+        display: flex;
+        align-items: center;
+        
         padding: 0.5rem;
+        border-radius: 1rem;
         border: 2px solid var(--tekstkleur);
+        
+        img {
+            width:2em;
+            height: 2em;
+        }
     }
-}
-
-@media (min-width: 24rem) {
-    body {
-        grid-template-columns: 1fr;
-        grid-template-rows: max-content 1fr;
-
-        grid-auto-flow: column;
-
-    }
-
-    nav {
-        flex-direction: row;
-        gap: 1rem;
+    span {
+        display: none;
+        @media (min-width: 30rem) {
+            display: block;
+        }
     }
 }
 
@@ -88,9 +103,17 @@ button:hover {
 
 form {
     padding: 0.5rem 0;
+    input {
+        width: 8rem;
+    }
 }
 
 section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
     border-radius: 1em;
 
     overflow: auto;
@@ -116,22 +139,6 @@ section:target {
     grid-auto-flow: column;
 
     grid-auto-columns: 18rem;
-
-
-    article {
-        border-radius: 10%;
-        border: 2px solid var(--tekstkleur);
-        overflow: clip;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-        font-weight: normal;
-    }
-
-    a {
-        color: var(--tekstkleur);
-    }
 }
 
 .visitekaartjes > article {
@@ -139,6 +146,9 @@ section:target {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr min-content min-content;
+    border-radius: 1rem;
+    border: 2px solid var(--tekstkleur);
+    overflow: clip;
 
     justify-items: center;
 
@@ -149,8 +159,10 @@ section:target {
     }
 
     h2 {
-      order: 2;
-      margin: 0;
+        font-size: 1.2rem;
+        font-weight: normal;
+        order: 2;
+        margin: 0;
     }
 
     div {
@@ -171,6 +183,7 @@ section:target {
     }
 
     a {
+        color: var(--tekstkleur);
         order: 3;
     }
 }
