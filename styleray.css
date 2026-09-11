@@ -1,0 +1,7 @@
+body {
+    background: rgb(255, 17, 57);
+
+    @media (min-width: 30em) {
+        background: yellow;
+    }
+}
