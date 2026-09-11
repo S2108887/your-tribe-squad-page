@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="64mm" height="64mm" version="1.1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <rect x="15.907" y="4.1195" width="32.929" height="56.799" rx="2.5511e-17" fill="none" stroke="#fff" stroke-width="2.0714"/>
+ <rect id="rect1" x="21.904" y="13.458" width="8.7244" height="5.8472" rx="2.5511e-17" fill="none" stroke="#fff" stroke-width="2"/>
+ <use id="use1" transform="translate(12.171)" stroke="#ffffff" xlink:href="#rect1"/>
+ <use id="use2" transform="translate(0 11.642)" stroke="#ffffff" xlink:href="#use1"/>
+ <use id="use3" transform="translate(-12.171)" stroke="#ffffff" xlink:href="#use2"/>
+ <use id="use4" transform="translate(0 11.642)" stroke="#ffffff" xlink:href="#use3"/>
+ <use transform="translate(12.171)" stroke="#ffffff" xlink:href="#use4"/>
+</svg>
