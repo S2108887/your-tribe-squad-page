@@ -59,12 +59,16 @@ header p {
 
 .card-preview img {
     width: 250px;
-    height: auto;
+    height: 350px;
+    object-fit: cover;
 }
 
 .card-preview div {
     text-align: center;
+    display: none;
 }
+
+
 
 .arrow {
     font-size: 30px;
