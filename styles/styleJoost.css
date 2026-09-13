@@ -56,16 +56,16 @@ nav {
     @media (min-width: 30rem) {
         flex-direction: column;
     }
-    
+
 
     a {
         display: flex;
         align-items: center;
-        
+
         padding: 0.5rem;
         border-radius: 1rem;
         border: 2px solid var(--tekstkleur);
-        
+
         img {
             width:2em;
             height: 2em;
@@ -88,7 +88,7 @@ section, nav > a {
 button {
     background-color: var(--onzichtbaarZwart);
     color: var(--tekstkleur);
-    border: 2px solid white;
+    border: 2px solid var(--tekstkleur);
     font-size: 1rem;
     border-radius: 1rem;
     padding: 0.5rem;
@@ -99,36 +99,101 @@ button:hover {
 }
 
 form {
-    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+    gap: 0.5rem;
+
     input {
+        height: fit-content;
         width: 8rem;
+    }
+    img {
+        width: 2rem;
+        height: 2rem;
+        display: block;
     }
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /*De <section>-elementen worden pas zichtbaar als je via een <a> naar ze gaat.*/
+    display: none;
     text-align: center;
+    /*Er kan nu een container-query gebruikt worden die de breedte van deze section gebruikt.*/
+    container-type: inline-size;
 
     border-radius: 1em;
 
     overflow: auto;
     padding: 1rem;
 
+    width: 100%;
     height: 100%;
-    display: none;
 }
 
 section:target {
+    /*Zichtbaar als je via een <a> er naartoe gaat.*/
     display: unset;
 }
 
+.kaartBrowser {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: [links kaarten zoek] 1fr [rechts] 1fr [zoek-einde kaarten-einde];
+    grid-template-rows: [zoek] min-content [links rechts] min-content [kaarten] 1fr;
+    gap: 0.5rem;
+
+    /*Dit wordt uitgevoerd als het section-element minstens zo breed is als de opgegeven breedte.*/
+    @container (width > 30rem) {
+        grid-template-columns: [links zoek] max-content [kaarten] 1fr [kaarten-einde rechts] max-content [zoek-einde];
+        grid-template-rows: [zoek] min-content [links rechts kaarten] 1fr;
+    }
+}
+
+.kaartBrowser > search {
+    grid-column: zoek / zoek-einde;
+}
+
+.kaartBrowser > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    align-self: center;
+
+    img {
+        width: 2rem;
+        height: 2rem;
+        display: block;
+    }
+
+    &:nth-of-type(1) {
+        grid-area: links;
+        justify-self: start;
+
+        transform: scaleX(-1);
+    }
+    &:nth-of-type(2) {
+        grid-area: rechts;
+        justify-self: end;
+    }
+}
+
 .visitekaartjes {
+    grid-column: kaarten / kaarten-einde;
+    grid-row: kaarten;
+
+    /*Scroll-snapping is verplicht in de x-richting. De snap-locaties worden bepaald door de <article>-elementen*/
+    scroll-snap-type: x mandatory;
+
+    justify-self: stretch;
+    align-self: stretch;
+
     padding-bottom: 1rem;
     overflow-x: auto;
-    width: 100%;
-    height: calc(100% - 2rem);
     display: grid;
     gap: 1rem;
     grid-template-rows: repeat(auto-fit, minmax(15rem, 1fr));
@@ -139,6 +204,8 @@ section:target {
 }
 
 .visitekaartjes > article {
+    /*De linkerkant van een <article> is een scroll-snap-locatie*/
+    scroll-snap-align: start;
     padding: 0.5rem;
     display: grid;
     grid-template-columns: 1fr;

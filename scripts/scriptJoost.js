@@ -3,17 +3,42 @@ import KAARTEN_INFO from "../assets/KaartInformatie.json" with { type: "json" };
 //Deze wordt gebruikt om tekst in alfabetische volgorde te zetten.
 const COLLATOR = Intl.Collator("nl");
 
-let container = document.querySelector(".visitekaartjes")
+const KAART_SCROLL_BREEDTE = 18*16 + 16; //Kaartbreedte: 18rem. gap: 1rem.
 
-let kaartenGesorteerd = KAARTEN_INFO.toSorted(
-    (a, b) => COLLATOR.compare(a.naam, b.naam))
+plaatsVisitekaartjes();
+plaatsKnopActies();
 
-for (let info of kaartenGesorteerd) {
-    let kaartje = maakVisitekaartje(info)
-    container.appendChild(kaartje)
+function plaatsKnopActies() {
+    document.querySelector("form").addEventListener("submit", gebruikZoektekst);
+
+    let kaartContainer = document.querySelector(".visitekaartjes");
+
+    document.querySelector(".kaartBrowser > button:nth-of-type(1)")
+        .addEventListener(
+            "click",
+            //Scroll naar links: 18rem: breedte, 1rem: gap.
+            () => kaartContainer.scrollBy({left: -KAART_SCROLL_BREEDTE, behavior: "smooth"}));
+
+    document.querySelector(".kaartBrowser > button:nth-of-type(2)")
+        .addEventListener(
+            "click",
+            //Scroll naar rechts: 18rem: breedte, 1rem: gap.
+            () => kaartContainer.scrollBy({left: KAART_SCROLL_BREEDTE, behavior: "smooth"}));
 }
 
-document.querySelector("form").addEventListener("submit", gebruikZoektekst);
+
+
+function plaatsVisitekaartjes() {
+    let container = document.querySelector(".visitekaartjes")
+
+    let kaartenGesorteerd = KAARTEN_INFO.toSorted(
+        (a, b) => COLLATOR.compare(a.naam, b.naam))
+
+    for (let info of kaartenGesorteerd) {
+        let kaartje = maakVisitekaartje(info)
+        container.appendChild(kaartje)
+    }
+}
 
 function gebruikZoektekst(event) {
     event.preventDefault();
