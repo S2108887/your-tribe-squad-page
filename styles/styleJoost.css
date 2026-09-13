@@ -99,12 +99,25 @@ button:hover {
 }
 
 form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+    gap: 0.5rem;
+
     input {
+        height: fit-content;
         width: 8rem;
+    }
+    img {
+        width: 2rem;
+        height: 2rem;
+        display: block;
     }
 }
 
 section {
+    /*De <section>-elementen worden pas zichtbaar als je via een <a> naar ze gaat.*/
     display: none;
     text-align: center;
     /*Er kan nu een container-query gebruikt worden die de breedte van deze section gebruikt.*/
@@ -120,6 +133,7 @@ section {
 }
 
 section:target {
+    /*Zichtbaar als je via een <a> er naartoe gaat.*/
     display: unset;
 }
 
@@ -172,6 +186,9 @@ section:target {
     grid-column: kaarten / kaarten-einde;
     grid-row: kaarten;
 
+    /*Scroll-snapping is verplicht in de x-richting. De snap-locaties worden bepaald door de <article>-elementen*/
+    scroll-snap-type: x mandatory;
+
     justify-self: stretch;
     align-self: stretch;
 
@@ -187,6 +204,8 @@ section:target {
 }
 
 .visitekaartjes > article {
+    /*De linkerkant van een <article> is een scroll-snap-locatie*/
+    scroll-snap-align: start;
     padding: 0.5rem;
     display: grid;
     grid-template-columns: 1fr;
