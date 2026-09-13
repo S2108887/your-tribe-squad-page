@@ -1,8 +1,14 @@
-import kaartenInfo from "../assets/KaartInformatie.json" with { type: "json" };
+import KAARTEN_INFO from "../assets/KaartInformatie.json" with { type: "json" };
+
+//Deze wordt gebruikt om tekst in alfabetische volgorde te zetten.
+const COLLATOR = Intl.Collator("nl");
 
 let container = document.querySelector(".visitekaartjes")
 
-for (let info of kaartenInfo) {
+let kaartenGesorteerd = KAARTEN_INFO.toSorted(
+    (a, b) => COLLATOR.compare(a.naam, b.naam))
+
+for (let info of kaartenGesorteerd) {
     let kaartje = maakVisitekaartje(info)
     container.appendChild(kaartje)
 }
