@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg width="64mm" height="64mm" version="1.1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
- <g transform="matrix(1.2636 0 0 1.2636 -10.217 -11.08)" fill="none" stroke="#fff" stroke-width="2">
-  <path d="m8.1379 27.17c14.129-0.74146 29.605 3.8183 43.446 1.0501"/>
-  <path d="m37.396 12.449c11.197 6.6225 10.544 14.537 20.739 22.182"/>
-  <path d="m8.1379 41.016c14.129 0.74146 29.605-3.8183 43.446-1.0501"/>
-  <path d="m37.396 55.737c11.197-6.6225 10.544-14.537 20.739-22.182"/>
- </g>
+ <symbol id="icoon">
+  <g transform="matrix(1.2636 0 0 1.2636 -10.217 -11.08)" fill="none" stroke="var(--icoon-kleur , #fff)" stroke-width="2">
+   <path d="m8.1379 27.17c14.129-0.74146 29.605 3.8183 43.446 1.0501"/>
+   <path d="m37.396 12.449c11.197 6.6225 10.544 14.537 20.739 22.182"/>
+   <path d="m8.1379 41.016c14.129 0.74146 29.605-3.8183 43.446-1.0501"/>
+   <path d="m37.396 55.737c11.197-6.6225 10.544-14.537 20.739-22.182"/>
+  </g>
+ </symbol>
 </svg>

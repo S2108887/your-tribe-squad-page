@@ -3,12 +3,16 @@
 }
 
 :root {
-    --achtergrondkleur: lightyellow;
-    --tekstkleur: white;
+    --achtergrondkleur: black;
+    --tekstkleur: #8f4c91;
+    --vakkleur2: #FFF56B;
+    --tekstkleur2: #8f4c91;
     --knopkleuractief: #ff8400;
-    --vakkleur: black;
+    --vakkleur: #FFF89C;
 
     --onzichtbaarZwart: #00000000;
+
+    --icon-kleur: #8f4c91;
 }
 
 nav:has(~ section:nth-of-type(1):target) > a:nth-child(1),
@@ -16,17 +20,22 @@ nav:has(~ section:nth-of-type(2):target) > a:nth-child(2),
 nav:has(~ section:nth-of-type(3):target) > a:nth-child(3),
 nav:has(~ section:nth-of-type(4):target) > a:nth-child(4)
 {
-    background-color: var(--knopkleuractief);
+    border-color: var(--tekstkleur);
+    bottom: 2rem;
+    @media (min-width: 30rem) {
+        bottom: 0;
+        left: 2rem;
+    }
 }
 
 body {
     background-color: var(--achtergrondkleur);
     display: grid;
-    padding: 1em;
+    padding: 1rem;
     margin: 0;
 
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content 1fr;
+    grid-template-columns: [navigatie sectie] 1fr;
+    grid-template-rows: [sectie] 1fr [navigatie] max-content;
 
     grid-auto-flow: row;
 
@@ -36,8 +45,8 @@ body {
     height: 100vh;
 
     @media (min-width: 30rem) {
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: [navigatie] max-content [sectie] 1fr;
+        grid-template-rows: [navigatie sectie] 1fr;
     }
 
 }
@@ -47,6 +56,8 @@ h1 {
 }
 
 nav {
+    grid-column: navigatie / span 1;
+    grid-row: navigatie / span 1;
     justify-self: center;
     display: flex;
     flex-direction: row;
@@ -59,16 +70,20 @@ nav {
 
 
     a {
+        border: 2px solid var(--onzichtbaarZwart);
+        position: relative;
+        
         display: flex;
         align-items: center;
 
         padding: 0.5rem;
         border-radius: 1rem;
-        border: 2px solid var(--tekstkleur);
 
-        img {
-            width:2em;
-            height: 2em;
+        svg {
+            width: 2rem;
+            height: 2rem;
+            
+            --icoon-kleur: var(--tekstkleur);
         }
     }
     span {
@@ -81,14 +96,18 @@ nav {
 }
 
 section, nav > a {
-    background-color: black;
+    background-color: var(--vakkleur);
     color: var(--tekstkleur);
 }
 
+section {
+    background-color: var(--vakkleur);
+}
+
 button {
-    background-color: var(--onzichtbaarZwart);
+    background-color: var(--vakkleur2);
     color: var(--tekstkleur);
-    border: 2px solid var(--tekstkleur);
+    border: 0;
     font-size: 1rem;
     border-radius: 1rem;
     padding: 0.5rem;
@@ -109,14 +128,17 @@ form {
         height: fit-content;
         width: 8rem;
     }
-    img {
-        width: 2rem;
-        height: 2rem;
+    svg {
         display: block;
+        width: 2rem;
+        --icoon-kleur: var(--tekstkleur);
     }
 }
 
 section {
+    grid-column: sectie / span 1;
+    grid-row: sectie / span 1;
+
     /*De <section>-elementen worden pas zichtbaar als je via een <a> naar ze gaat.*/
     display: none;
     text-align: center;
@@ -164,10 +186,10 @@ section:target {
 
     align-self: center;
 
-    img {
+    svg {
         width: 2rem;
-        height: 2rem;
         display: block;
+        --icoon-kleur: var(--tekstkleur);
     }
 
     &:nth-of-type(1) {
