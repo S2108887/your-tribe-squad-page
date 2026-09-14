@@ -8,7 +8,7 @@ padding: 1rem 5%;
 background-color: rgb(103, 83, 103);
 margin-bottom: 3rem;
 position: relative;
-
+color: brown;
 display: flex;
 justify-content: space-between;
 }
