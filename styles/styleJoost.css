@@ -164,13 +164,13 @@ section:target {
 
     display: grid;
     grid-template-columns: [links kaarten zoek] 1fr [rechts] 1fr [zoek-einde kaarten-einde];
-    grid-template-rows: [zoek] min-content [links rechts] min-content [kaarten] 1fr;
+    grid-template-rows: [links rechts] min-content [kaarten] 1fr [zoek] min-content;
     gap: 0.5rem;
 
     /*Dit wordt uitgevoerd als het section-element minstens zo breed is als de opgegeven breedte.*/
     @container (width > 30rem) {
         grid-template-columns: [links zoek] max-content [kaarten] 1fr [kaarten-einde rechts] max-content [zoek-einde];
-        grid-template-rows: [zoek] min-content [links rechts kaarten] 1fr;
+        grid-template-rows: [links rechts kaarten] 1fr [zoek] min-content;
     }
 }
 
