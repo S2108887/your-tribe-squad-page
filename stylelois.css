@@ -1,34 +1,142 @@
 body{
-    background-color: blanchedalmond;
+    margin: 0;
+    background-color: rgb(244, 235, 162);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.class "p.slogan" {
+    text-align: center;
 }
 
 nav {
-width: 100%;
-padding: 1rem 5%;
-background-color: rgb(103, 83, 103);
-margin-bottom: 3rem;
-position: relative;
-color: brown;
-display: flex;
-justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(195, 142, 195);
+    color: white;
+    padding: 3px 30px
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 20px;
+    color: rgb(244, 235, 162);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgb(134, 121, 23);
+    text-decoration: underline;
 }
 
 .nav-links li a {
-text-decoration: none;
+    transition: all 0.3s;
 }
 
-
-ul{
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    color: rgb(192, 54, 54);
-    position: relative;
-    font-size: 1.05rem;
-    text-decoration-line: none;
+.nav-links li {
+    display: block;
+    padding: 0px;
 }
+
+button {
+    padding: 7px;
+background-color: rgb(244, 235, 162);
+}
+    
 
 h1{ 
     text-align: center;
 
+}
+
+.carousel {
+    width: 60%;
+    overflow: auto;
+    margin: 3em auto;
+    display: flex;
+    gap: 1em;
+}
+
+.visitekaartje{
+    flex: 0 0 20em;
+    height: 12em;
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: .5em;
+    text-align: center;
+    align-content: center;
+}
+
+.slider {
+    width: 100%;
+
+}
+
+.slides {
+    display: flex;
+}
+
+.slides img {
+    width: 100%;
+    
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .nav-links a {
+    display: block;
+    display: flex;
+    padding: 10px 20px;
+    color: rgb(244, 235, 162);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgb(134, 121, 23);
+    text-decoration: underline;
+}
+    
+
+    .nav-links li a {
+        display: block;
+        padding: 10px 15px;
+        background-color: rgb(244, 235, 162);
+        color: rgb(134, 121, 23);
+        border-radius: 8px;
+    }
+
+    .buttons {
+        display: none;
+    }
 }
