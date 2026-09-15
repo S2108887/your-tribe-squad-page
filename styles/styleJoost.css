@@ -286,7 +286,16 @@ section:focus-visible {
     }
 
     a {
-        color: var(--tekstkleur);
         order: 3;
+        padding: 0.5rem;
+        background-color: var(--tekstkleur);
+        border-radius: 1rem;
+    }
+
+    svg {
+        display: block;
+        --icoon-kleur: var(--vakkleur);
+        width: 2rem;
+        height: 2rem;
     }
 }
