@@ -1,19 +1,25 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
 body {
-    background-image: url("Gradient_grijs.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+   background-color: rgb(208, 255, 152);
 }
 nav {
     display: flex;
     justify-content: center;
     gap: 40px;
-    padding: 20px;
+    padding: 50px;
+    
 }
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
@@ -25,28 +31,83 @@ img {
     height: auto;
 }
 
+nav img {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+}
 header {
     text-align: center;
+
+    background-image: url("gradient_paars.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 145px;
+
+    position: relative;
 }
 
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+header > * {
+    position: relative;
+}
 h1 {
-    font-size: 50px;
+    font-size: 70px;
+    margin-top: 180px;
     margin-bottom: 10px;
+    text-align: center;
+    color:#8f7ab8;
+    text-shadow: 0px 0px 12px rgb(255, 255, 255);
+
 }
 
 header p {
-    font-size: 18px;
+    font-family: "Segoe Script", cursive;
+    font-size: 22px;
+    font-weight: normal;
     margin-top: 0;
 }
     
 .search {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 
 
 
+.search input {
+    width: 500px;
+    padding: 12px 18px;
+    border: 2px solid #b9a7d8;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    outline: none;
+}
+
+.search button {
+    margin-left: 8px;
+    width: 45px;
+    border: none;
+    border-radius: 50%;
+    background-color: #b9a7d8;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search button img {
+    width: 25px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
 
 .card-preview {
@@ -76,3 +137,4 @@ header p {
     border: none;
     cursor: pointer;
 }
+
