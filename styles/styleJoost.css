@@ -13,8 +13,30 @@
     --onzichtbaarZwart: #00000000;
 
     --icon-kleur: #8f4c91;
+
+    font-family: "Alegreya";
 }
 
+input {
+    font-family: "Alegreya";
+    font-size: 1rem;
+}
+
+/*Een ander letterype wordt ingeladen: Alegreya.*/
+@font-face {
+  font-family: "Alegreya";
+  font-style:  normal;
+  src: url("../assets/joost/Alegreya-Regular.ttf")
+}
+
+/*De italic-versie van Alegreya*/
+@font-face {
+  font-family: "Alegreya";
+  font-style:  italic;
+  src: url("../assets/joost/Alegreya-Italic.ttf")
+}
+
+/*Wordt een section getarget, dan krijgt de bijbehorende navigatie-link een andere opmaak.*/
 section:nth-of-type(1):target~nav>a:nth-child(1),
 section:nth-of-type(2):target~nav>a:nth-child(2),
 section:nth-of-type(3):target~nav>a:nth-child(3),
@@ -97,6 +119,7 @@ nav {
 nav > a {
     background-color: var(--vakkleur);
     color: var(--tekstkleur);
+    text-decoration: none;
 }
 
 button {
@@ -121,7 +144,7 @@ form {
 
     input {
         height: 3rem;
-        width: 8rem;
+        width: 10rem;
         padding-right: 3rem;
     }
 
