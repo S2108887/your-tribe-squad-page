@@ -10,8 +10,8 @@ body{
 
 body { font-family: sans-serif; }
 
-.class "p.slogan" {
-    text-align: center;
+h2{
+    color: rgb(195, 142, 195);
 }
 
 nav {
