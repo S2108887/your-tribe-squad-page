@@ -45,12 +45,15 @@ function gebruikZoektekst(event) {
 
     let zoektekst = document.querySelector("input[name=\"zoektekst\"]").value;
 
-    if(zoektekst) {
+    if (zoektekst) {
         toonKaartenMetOvereenkomendeZoektekst(zoektekst);
     }
     else {
         toonAlleKaarten();
     }
+
+    //Scroll de kaartcontainer terug naar het begin.
+    document.querySelector(".visitekaartjes").scroll({left: 0, behavior: "smooth"})
 }
 
 function toonKaartenMetOvereenkomendeZoektekst(zoektekst) {
