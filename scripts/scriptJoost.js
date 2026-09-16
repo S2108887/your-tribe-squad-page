@@ -89,11 +89,25 @@ function maakVisitekaartje(info) {
 
     let link = document.createElement("a")
     link.setAttribute("href", info.link)
-    link.append("=>");
+    link.setAttribute("target", "_blank")
+
+    let linkAfbeelding = maakLinkAfbeelding()
+    link.appendChild(linkAfbeelding)
 
     resultaat.appendChild(naam)
     resultaat.appendChild(afbeeldingContainer)
     resultaat.appendChild(link)
+
+    return resultaat;
+}
+
+function maakLinkAfbeelding() {
+    let resultaat = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+    resultaat.setAttribute("viewBox", "0 0 64 64")
+
+    let useElement = document.createElementNS("http://www.w3.org/2000/svg", "use")
+    useElement.setAttribute("href", "assets/joost/LinkExtern.svg#icoon")
+    resultaat.appendChild(useElement)
 
     return resultaat;
 }
