@@ -89,6 +89,7 @@ function maakVisitekaartje(info) {
 
     let link = document.createElement("a")
     link.setAttribute("href", info.link)
+    link.setAttribute("target", "_blank")
 
     let linkAfbeelding = maakLinkAfbeelding()
     link.appendChild(linkAfbeelding)
