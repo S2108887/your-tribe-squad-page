@@ -31,6 +31,9 @@ input {
 @font-face {
   font-family: "Alegreya";
   font-style:  normal;
+
+  /*Dit zorgt ervoor dat alle cijfers even hoog en even breed zijn.*/
+  font-feature-settings: "lnum", "tnum";
   src: url("../assets/joost/Alegreya-Regular.ttf")
 }
 
@@ -47,10 +50,10 @@ section:nth-of-type(2):target~nav>a:nth-child(2),
 section:nth-of-type(3):target~nav>a:nth-child(3),
 section:nth-of-type(4):target~nav>a:nth-child(4) {
     border-color: var(--tekstkleur);
-    translate: 0 -2rem;
+    translate: 0 -1.5rem;
 
     @media (min-width: 30rem) {
-        translate: 2rem 0;
+        translate: 1.5rem 0;
     }
 }
 
@@ -96,7 +99,7 @@ nav {
 
 
     a {
-        transition: translate 0.5s, border 0.5s;
+        transition: translate 0.5s linear, border 0.5s linear;
         border: 2px solid var(--onzichtbaarZwart);
         
         display: flex;
@@ -154,6 +157,11 @@ p.slogan {
     font-size: 1.2rem;
 }
 
+address > p {
+    font-style: normal;
+    font-weight: bold;
+}
+
 section {
     grid-column: sectie / span 1;
     grid-row: sectie / span 1;
@@ -178,7 +186,6 @@ section {
 
     overflow: auto;
     padding: 1rem;
-    padding-bottom: 1.5rem;
 
     width: 100%;
     height: 100%;
@@ -283,7 +290,7 @@ form {
         grid-area: links;
         justify-self: start;
 
-        transform: scaleX(-1);
+        scale: -1 1;
     }
     &:nth-of-type(2) {
         grid-area: rechts;
