@@ -1,84 +1,66 @@
-const searchInput = document.querySelector('input[type="search"]');
-const searchButton = document.querySelector("header button");
+const cards = document.querySelectorAll('.card-preview > div');
+const prevBtn = document.querySelector('.arrow.prev-btn') || document.querySelectorAll('.arrow')[0];
+const nextBtn = document.querySelector('.arrow.next-btn') || document.querySelectorAll('.arrow')[1];
+const searchInput = document.querySelector('.search input');
 
-searchInput.addEventListener("input", function () {
-    const zoekterm = searchInput.value.toLowerCase();
+let currentIndex = 0;
 
-    cards.forEach(function (card) {
-        const naam = card.querySelector("h2").textContent.toLowerCase();
 
-        if (naam.includes(zoekterm)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-});
-
-const cards = document.querySelectorAll(".card-preview div");
-const arrows = document.querySelectorAll(".arrow");
-
-let currentCard = 0;
-
-function showCards() {
-    cards.forEach(function (card) {
-        card.style.display = "none";
+function updateCarousel() {
+    
+    cards.forEach(card => {
+        card.style.display = ''; 
+        card.classList.remove('active', 'prev', 'next');
     });
 
-    cards[currentCard].style.display = "block";
-    cards[currentCard + 1].style.display = "block";
-    cards[currentCard + 2].style.display = "block";
+   
+    const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+    const nextIndex = (currentIndex + 1) % cards.length;
+
+    cards[currentIndex].classList.add('active');
+    cards[prevIndex].classList.add('prev');
+    cards[nextIndex].classList.add('next');
 }
 
-showCards();
 
-arrows[0].addEventListener("click", function () {
-    currentCard -= 3;
-
-    if (currentCard < 0) {
-        currentCard = cards.length - 3;
-    }
-
-    showCards();
-});
-
-arrows[1].addEventListener("click", function () {
-    currentCard += 3;
-
-    if (currentCard >= cards.length) {
-        currentCard = 0;
-    }
-
-    showCards();
-});
-
-cards.forEach(function (card) {
-    card.addEventListener("click", function () {
-        const image = card.querySelector("img");
-
-        window.open(image.src, "_blank");
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
     });
-});
+}
+
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+    });
+}
 
 
-const sections = document.querySelectorAll("header, main > section");
-const links = document.querySelectorAll("nav a");
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const filter = searchInput.value.toLowerCase().trim();
 
-links.forEach(function(link) {
-    link.addEventListener("click", function(event) {
-        event.preventDefault();
+        
+        if (filter === '') {
+            updateCarousel();
+            return;
+        }
 
-        sections.forEach(function(section) {
-            section.style.display = "none";
+        
+        cards.forEach(card => {
+            const cardName = card.innerText.trim().toLowerCase();
+            
+            card.classList.remove('active', 'prev', 'next');
+
+            if (cardName.startsWith(filter)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
         });
-
-        const target = document.querySelector(link.getAttribute("href"));
-        target.style.display = "block";
     });
-});
+}
 
-sections.forEach(function(section) {
-    section.style.display = "none";
-});
-
-document.querySelector("#home").style.display = "block";
+updateCarousel();
