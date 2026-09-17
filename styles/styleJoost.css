@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+/*Dit is nodig om --icoon-kleur animeerbaar te maken.*/
+@property --icoon-kleur {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #8f4c91;
+}
+
 :root {
     --achtergrondkleur: black;
     --tekstkleur: #8f4c91;
@@ -12,18 +19,41 @@
 
     --onzichtbaarZwart: #00000000;
 
-    --icon-kleur: #8f4c91;
+    font-family: "Alegreya";
 }
 
+input {
+    font-family: "Alegreya";
+    font-size: 1rem;
+}
+
+/*Een ander letterype wordt ingeladen: Alegreya.*/
+@font-face {
+  font-family: "Alegreya";
+  font-style:  normal;
+
+  /*Dit zorgt ervoor dat alle cijfers even hoog en even breed zijn.*/
+  font-feature-settings: "lnum", "tnum";
+  src: url("../assets/joost/Alegreya-Regular.ttf")
+}
+
+/*De italic-versie van Alegreya*/
+@font-face {
+  font-family: "Alegreya";
+  font-style:  italic;
+  src: url("../assets/joost/Alegreya-Italic.ttf")
+}
+
+/*Wordt een section getarget, dan krijgt de bijbehorende navigatie-link een andere opmaak.*/
 section:nth-of-type(1):target~nav>a:nth-child(1),
 section:nth-of-type(2):target~nav>a:nth-child(2),
 section:nth-of-type(3):target~nav>a:nth-child(3),
 section:nth-of-type(4):target~nav>a:nth-child(4) {
     border-color: var(--tekstkleur);
-    translate: 0 -2rem;
+    translate: 0 -1.5rem;
 
     @media (min-width: 30rem) {
-        translate: 2rem 0;
+        translate: 1.5rem 0;
     }
 }
 
@@ -38,7 +68,7 @@ body {
 
     grid-auto-flow: row;
 
-    gap: 1em;
+    gap: 1rem;
 
     width: 100vw;
     height: 100vh;
@@ -51,7 +81,7 @@ body {
 }
 
 h1 {
-    margin-top: 0;
+    margin: 0;
 }
 
 nav {
@@ -69,7 +99,7 @@ nav {
 
 
     a {
-        transition: translate 0.5s, border 0.5s;
+        transition: translate 0.5s linear, border 0.5s linear;
         border: 2px solid var(--onzichtbaarZwart);
         
         display: flex;
@@ -97,6 +127,7 @@ nav {
 nav > a {
     background-color: var(--vakkleur);
     color: var(--tekstkleur);
+    text-decoration: none;
 }
 
 button {
@@ -113,32 +144,22 @@ button:hover {
     background-color: var(--knopkleuractief);
 }
 
-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
+p {
+    text-align: justify;
+    max-width: 20rem;
+    margin: 0;
+}
 
-    input {
-        height: 3rem;
-        width: 8rem;
-        padding-right: 3rem;
-    }
+p.slogan {
+    text-align: center;
+    max-width: 100%;
+    font-style: italic;
+    font-size: 1.2rem;
+}
 
-    button {
-        background-color: var(--onzichtbaarZwart);
-        translate: -3rem 0;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: var(--tekstkleur);
-    }
-    svg {
-        display: block;
-        width: 2rem;
-        --icoon-kleur: black;
-    }
+address > p {
+    font-style: normal;
+    font-weight: bold;
 }
 
 section {
@@ -150,6 +171,13 @@ section {
 
     /*De <section>-elementen worden pas zichtbaar als je via een <a> naar ze gaat.*/
     display: none;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max-content;
+
+    gap: 1rem;
+
+    justify-items: center;
+
     text-align: center;
     /*Er kan nu een container-query gebruikt worden die de breedte van deze section gebruikt.*/
     container-type: inline-size;
@@ -163,9 +191,17 @@ section {
     height: 100%;
 }
 
+section:nth-of-type(2) { /*Squad-sectie*/
+
+    /*De kaartbrowser zit in de laatste rij. Die krijgt zoveel
+    mogelijk ruimte. Het nadeel is wel dat je de sectie altijd naar
+    beneden moet scrollen om de kaartbrowser volledig in beeld te krijgen.*/
+    grid-template-rows: min-content min-content 100%;
+}
+
 section:target {
     /*Zichtbaar als je via een <a> er naartoe gaat.*/
-    display: unset;
+    display: grid;
 }
 
 /*Dit voorkomt dat er een rand rond de section getekend wordt bij het openen/herladen van de pagina. */
@@ -181,7 +217,6 @@ section:focus-visible {
     grid-template-columns: [links kaarten zoek] 1fr [rechts] 1fr [zoek-einde kaarten-einde];
     grid-template-rows: [links rechts] min-content [kaarten] 1fr [zoek] min-content;
     gap: 0.5rem;
-    padding-bottom: 0.5rem;
 
     /*Dit wordt uitgevoerd als het section-element minstens zo breed is als de opgegeven breedte.*/
     @container (width > 30rem) {
@@ -192,6 +227,45 @@ section:focus-visible {
 
 .kaartBrowser > search {
     grid-column: zoek / zoek-einde;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 10rem;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 3rem;
+
+    input {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        height: 3rem;
+        padding-right: 3rem;
+    }
+
+    button {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        justify-self: end;
+
+        background-color: var(--onzichtbaarZwart);
+        cursor: pointer;
+    }
+
+    svg {
+        transition: --icoon-kleur 0.5s;
+        --icoon-kleur: black;
+        display: block;
+        width: 2rem;
+    }
+
+    button:hover {
+        background-color: var(--tekstkleur);
+        svg {
+            --icoon-kleur: var(--vakkleur);
+        }
+    }
 }
 
 .kaartBrowser > button {
@@ -204,14 +278,19 @@ section:focus-visible {
     svg {
         width: 2rem;
         display: block;
+        transition: --icoon-kleur 0.5s;
         --icoon-kleur: var(--tekstkleur);
+    }
+
+    &:hover > svg {
+        --icoon-kleur: white;
     }
 
     &:nth-of-type(1) {
         grid-area: links;
         justify-self: start;
 
-        transform: scaleX(-1);
+        scale: -1 1;
     }
     &:nth-of-type(2) {
         grid-area: rechts;
