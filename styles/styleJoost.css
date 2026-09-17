@@ -370,27 +370,23 @@ form {
 
     &.zoomAfbeelding {
         z-index: 1;
-    }
-    
-    &.zoomAfbeelding > div {
         position: fixed;
         width: 100vw;
         height: 100vh;
         top: 0;
         left: 0;
-        background-color: black;
 
-        img {
-            position: unset;
-            margin: 1rem;
-            object-position: center;
+        grid-template-columns: [afbeelding] 1fr;
+        grid-template-rows: [afbeelding] 1fr;
+
+        & > a, & > button {
+            display: none;
         }
+
     }
 
     img {
         position: absolute;
-        object-fit: contain;
-        object-position: top;
         max-width: 100%;
         max-height: 100%;
         border-radius: 1rem;
