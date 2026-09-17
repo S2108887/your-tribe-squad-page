@@ -47,7 +47,7 @@ input {
 }
 
 /*Wordt een section getarget, dan krijgt de bijbehorende navigatie-link een andere opmaak.*/
-section:nth-of-type(1):target~nav>a:nth-child(1),
+a:nth-child(1), /*Eerste nav is bij default al aan.*/
 section:nth-of-type(2):target~nav>a:nth-child(2),
 section:nth-of-type(3):target~nav>a:nth-child(3),
 section:nth-of-type(4):target~nav>a:nth-child(4) {
@@ -57,6 +57,12 @@ section:nth-of-type(4):target~nav>a:nth-child(4) {
     @media (min-width: 30rem) {
         translate: 1.5rem 0;
     }
+}
+
+/*Maak het standaard-gedrag van de eerste navigatielink ongedaan als er een andere sectie getarget is.*/
+section:nth-of-type(n + 2):target~nav>a:nth-child(1) {
+    border-color: var(--onzichtbaarZwart);
+    translate: 0;
 }
 
 body {
@@ -199,6 +205,14 @@ section {
 
     width: 100%;
     height: 100%;
+}
+
+/*De eerste section wordt getoond als geen een sectie getarget is.*/
+section:nth-of-type(1) {
+    display: grid;
+}
+section:nth-of-type(1):has(~section:target) {
+    display: none;
 }
 
 section:nth-of-type(2) { /*Squad-sectie*/
@@ -370,27 +384,23 @@ form {
 
     &.zoomAfbeelding {
         z-index: 1;
-    }
-    
-    &.zoomAfbeelding > div {
         position: fixed;
         width: 100vw;
         height: 100vh;
         top: 0;
         left: 0;
-        background-color: black;
 
-        img {
-            position: unset;
-            margin: 1rem;
-            object-position: center;
+        grid-template-columns: [afbeelding] 1fr;
+        grid-template-rows: [afbeelding] 1fr;
+
+        & > a, & > button {
+            display: none;
         }
+
     }
 
     img {
         position: absolute;
-        object-fit: contain;
-        object-position: top;
         max-width: 100%;
         max-height: 100%;
         border-radius: 1rem;
@@ -427,5 +437,16 @@ form {
         --icoon-kleur: var(--vakkleur);
         width: 2rem;
         height: 2rem;
+    }
+}
+
+section:nth-of-type(3) > article {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p:has(~ p) {
+        margin-bottom: 1rem;
+
     }
 }
