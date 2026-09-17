@@ -59,3 +59,26 @@ cards.forEach(function (card) {
         window.open(image.src, "_blank");
     });
 });
+
+
+const sections = document.querySelectorAll("header, main > section");
+const links = document.querySelectorAll("nav a");
+
+links.forEach(function(link) {
+    link.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        sections.forEach(function(section) {
+            section.style.display = "none";
+        });
+
+        const target = document.querySelector(link.getAttribute("href"));
+        target.style.display = "block";
+    });
+});
+
+sections.forEach(function(section) {
+    section.style.display = "none";
+});
+
+document.querySelector("#home").style.display = "block";

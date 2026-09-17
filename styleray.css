@@ -7,8 +7,9 @@
 
 
 body {
-   background-color: #F6E7B0;
+    background-color: #F6E7B0;
 }
+
 nav {
     display: flex;
     justify-content: center;
@@ -138,3 +139,18 @@ header p {
     cursor: pointer;
 }
 
+/* Verschillende pagina-schermen */
+
+#squad,
+#explore,
+#contact {
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+/* Achtergrond van Squad */
+#squad {
+    background-image: url("jouw-achtergrond.jpg");
+    background-size: cover;
+    background-position: center;
+}
