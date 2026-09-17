@@ -425,3 +425,14 @@ form {
         height: 2rem;
     }
 }
+
+section:nth-of-type(3) > article {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p:has(~ p) {
+        margin-bottom: 1rem;
+
+    }
+}
