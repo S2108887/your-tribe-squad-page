@@ -8,6 +8,8 @@ De instructie voor deze leertaak staan in de [WIKI](https://github.com/fdnd-task
 
 ### CSS
 
+
+
 #### Responsive gedrag
 De pagina van Joost reageert op verschillende schermbreedtes.
 Bij de smalle weergave is de navigatie onderaan en zijn de pijlen om
