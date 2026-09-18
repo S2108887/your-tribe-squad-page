@@ -10,6 +10,11 @@ De instructie voor deze leertaak staan in de [WIKI](https://github.com/fdnd-task
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c2bc8bad6a181d9c1513550a8c8a4f76f90a4f03
 
 
 
