@@ -22,7 +22,9 @@ Squad: via Squad kun je de verschillende visitekaartjes van de squad bekijken.
 Explore: via Explore kun je interessante plekken op de Amstelcampus bekijken.
 Contact: via Contact kun je onze contactgegevens bekijken. 
 ### Link-pagina
-### Contactgegevens
+
+Hier is een link naar [De squad-page van Team123](https://edu.nl/rm9gb).
+<img width=300 alt="QR-code naar onze webpagina" src="screenshots/QR-code-website.png">
 
 ## Amstelcampus
 Voor dit onderdeel is er onderzocht welke plekken er op de Amstelcampus het bezoeken waard zijn.
