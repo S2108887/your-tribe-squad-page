@@ -92,7 +92,6 @@ bepaalde breedte van de `<section>`, andere styles kan activeren.
 ## Bronnen
  Dit zijn de bronnen voor het onderzoek naar de Amstelcampus en de leuke plekken.
 
-
 De Balkons in het Jacoba Mulderhuis.
 Hier zie je een plattegrond/indeling van de bibliotheek waar je kan studeren en hoe alles staat ingedeeld.
  Jakoba Mulderhuis HvA Amsterdam - EX interiors
@@ -104,9 +103,6 @@ Kohnstammhuis (Bibliotheek) | HvA
 Projectruimtes WIbauthuis op de eerste en tweede etage.
 Hier vind je aanvullende informatie over je bezoek aan een projectruimte.
 Wibauthuis | Bibliotheek | Locaties | HvA
-
-
-Vrije tijd
 
 Café Fest op het Wibauthof.
 In de link hieronder kom je op de website van het Café. hier vind je onder anderen de menukaart.
