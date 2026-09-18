@@ -16,6 +16,11 @@ Wij drieën hebben elk een eigen pagina gemaakt waar wij elk mee bezig zijn gewe
 De één is er iets verder mee gekomen dan de ander, desalniettemin willen wij deze alsnog laten zien.
 
 ## Gebruik
+Op de pagina staat een duidelijke  header met navigatie, titel,  slogan en een zoekbalk. Via de navigatie kun je navigeren naar squad, explore en contact. Daarnaast kun je via de zoekbalk op zoek naar het visitekaartje van een squad member. Verder is het onderaan de pagina ook mogelijk om door de visitekaartjes heen te scrollen.
+
+Squad: via Squad kun je de verschillende visitekaartjes van de squad bekijken.
+Explore: via Explore kun je interessante plekken op de Amstelcampus bekijken.
+Contact: via Contact kun je onze contactgegevens bekijken. 
 ### Link-pagina
 ### Contactgegevens
 
@@ -56,8 +61,35 @@ Onze site is gebouwd met HTML en CSS. Op sommige pagina’s is er ook JavaScript
 ### HTML
 Over het algemeen hebben wij dezelfde HTML indeling gebruikt. Zoals het gebruik van buttons, links en een zoek-kopje. Hierbij horen ook de icoontjes van de pagina’s.
 #### Header
+In de header staat de navigatie met de knoppen. home, squad, explore en contact.  Daarnaast staat in de header de titel van de pagina ‘THE SQUAD’ , de slogan en de zoekbalk.  Met de zoekbalk. kun je een specifiek squad member opzoeken. 
+
+#### Main
+In de main staan alle visitekaartjes van de squad met de bijbehorende pijltjes om door de visitekaartjes heen te kunnen scrollen. de visitekaartjes staan als afbeelding in de main. 
+
 
 ### CSS
+Met de CSS hebben we de website vormgegeven. We hebben gebruik gemaakt van verschillende kleuren, achtergronden en lettertype. Hieronder valt ook de header. Hierbij zijn er verschillende kleuren/IMG, groottes en lettertype gebruikt. In de CSS staat:
+
+`background-image: url("gradient_paars.jpg"); `dit stukje voegt de afbeelding toe als achtergrond. 
+ `background-size: cover;`staat op cover en zorgt ervoor dat de afbeelding de gehele header bedekt. 
+ 
+
+
+`background: rgba(255, 255, 255, 0.2);` geeft de extra laag een witte kleur. De 0.2 staat voor 20% dekking, waardoor de achtergrondafbeelding lichter en transparanter lijkt. 
+
+
+`font-size: 70px;`
+de font size bepaalt de grootte van de titel, deze staat op 70px.
+`text-shadow: 0px 0px 12px rgb(255, 255, 255);
+`zorgt voor een gloed rondom de titel, in dit geval is het een witte gloed. 
+
+.search 
+`display: flex;`
+maakt van de .search een flex-container.
+
+`justify-content: center;`
+zorgt voor de juiste positie van de zoekbalk, hier staat hij ingesteld op horizontaal in het midden. 
+
 
 
 
